@@ -100,8 +100,8 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="data.js"></script>
+    <script src="./script.js"></script>
+    <script src="./data.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const detail = document.getElementById("detail");
@@ -150,7 +150,7 @@
                     <h5 class="card-title text-truncate">${product.name}</h5>
                     <p class="card-text" style="text-align: center">${Math.floor(product.price * (1 - product.discount)).toLocaleString("vi-VN")}<del style="font-size: smaller; color: red">${product.price}</del></p>
                     <div style="text-align: center">
-                        <a href="/san-pham.html?id=${product.id}" class="btn btn-primary">Chi tiết</a>
+                        <a href="./san-pham.html?id=${product.id}" class="btn btn-primary">Chi tiết</a>
                     </div>
                     </div>
                 </div>

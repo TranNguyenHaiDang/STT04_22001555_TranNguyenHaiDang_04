@@ -91,8 +91,8 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="news.js"></script>
+    <script src="./script.js"></script>
+    <script src="./news.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
           let newsList = news;
@@ -107,7 +107,7 @@
                   <div class="card-body">
                       <h5 class="card-title">${news.title}</h5>
                       <p class="card-text">${news.content.substring(0, 90)}...</p>
-                      <a href="/tin-tuc.html?id=${news.id}" class="btn btn-primary">Xem chi tiết</a>
+                      <a href="./tin-tuc.html?id=${news.id}" class="btn btn-primary">Xem chi tiết</a>
                   </div>
                   </div>
               </div>
