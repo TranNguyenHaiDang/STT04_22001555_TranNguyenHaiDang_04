@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="background">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <h2 class="text-center mb-4">Đăng ký</h2>
+            <form id="register-form">
+              <div class="form-group">
+                <label for="new-email"
+                  >Email <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  id="new-email"
+                  name="new-email"
+                  class="form-control"
+                  required
+                />
+                <small id="email-error" class="text-danger"></small>
+              </div>
+              <div class="form-group">
+                <label for="new-fullname"
+                  >Họ và Tên <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  id="new-fullname"
+                  name="new-fullname"
+                  class="form-control"
+                  required
+                />
+                <small id="fullname-error" class="text-danger"></small>
+              </div>
+              <div class="form-group">
+                <label for="new-phone"
+                  >Số điện thoại <span class="text-danger">*</span></label
+                >
+                <input
+                  type="number"
+                  id="new-phone"
+                  name="new-phone"
+                  class="form-control"
+                  required
+                />
+                <small id="phone-error" class="text-danger"></small>
+              </div>
+              <div class="form-group">
+                <label for="new-birthday">Ngày sinh</label>
+                <input
+                  type="date"
+                  id="new-birthday"
+                  name="new-birthday"
+                  class="form-control"
+                />
+                <small id="birthday-error" class="text-danger"></small>
+              </div>
+              <!-- gender form group here -->
+              <div class="form-group">
+                <label for="new-gender"
+                  >Giới tính <span class="text-danger">*</span></label
+                >
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="new-gender"
+                        id="male"
+                        value="male"
+                        checked
+                      />
+                      <label class="form-check-label" for="male"> Nam </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="new-gender"
+                        id="female"
+                        value="female"
+                      />
+                      <label class="form-check-label" for="female"> Nữ </label>
+                    </div>
+                  </div>
+                </div>
+                <small id="gender-error" class="text-danger"></small>
+              </div>
+              <div class="form-group">
+                  <label for="new-address">Địa chỉ</label>
+                  <input
+                      type="text"
+                      id="new-address"
+                      name="new-address"
+                      class="form-control"
+                  />
+                  <small id="address-error" class="text-danger"></small>
+              </div>
+              <div class="form-group">
+                <label for="new-username"
+                  >Tên đăng nhập <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  id="new-username"
+                  name="new-username"
+                  class="form-control"
+                  required
+                />
+                <small id="username-error" class="text-danger"></small>
+              </div>
+              <div class="form-group">
+                <label for="new-password">Mật khẩu <span class="text-danger">*</span></label>
+                <input
+                  type="password"
+                  id="new-password"
+                  name="new-password"
+                  class="form-control"
+                  required
+                />
+                <small id="password-error" class="text-danger"></small>
+              </div>
+              <div class="form-group">
+                <label for="new-password">Nhập lại mật khẩu <span class="text-danger">*</span></label>
+                <input
+                  type="password"
+                  id="confirm-password"
+                  name="confirm-password"
+                  class="form-control"
+                  required
+                />
+                <small id="confirm-password-error" class="text-danger"></small>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">
+                  Đăng ký
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          $("#register-form").submit(function (e) {
+            e.preventDefault();
+            
+            let newEmail = $("#new-email").val();
+            let newPhone = $("#new-phone").val();
+            let newUsername = $("#new-username").val();
+            let newPassword = $("#new-password").val();
+            let confirmPassword = $("#confirm-password").val();
+      
+            if (newPassword !== confirmPassword) {
+              $("#confirm-password-error").text("Mật khẩu xác nhận không khớp!");
+              return;
+            }
+      
+            let existingEmail = users.find((user) => user.email === newEmail);
+            let existingPhone = users.find((user) => user.phone === newPhone);
+            let existingUser = users.find((user) => user.username === newUsername);
+      
+            if (existingEmail) {
+              $("#email-error").text("Email đã tồn tại!");
+              $("#username-error").text("");
+              $("#password-error").text("");
+              return;
+            } 
+            
+            if (existingPhone) {
+              $("#phone-error").text("Số điện thoại đã tồn tại!");
+              $("#username-error").text("");
+              $("#password-error").text("");
+              return;
+            }
+      
+            if (existingUser) {
+              $("#username-error").text("Tên đăng nhập đã tồn tại!");
+              $("#email-error").text("");
+              $("#password-error").text("");
+              return;
+            }
+      
+            addUser(newEmail, newPhone, newUsername, newPassword);
+            console.log(newEmail, newPhone, newUsername, newPassword);
+            $("#email-error").text("");
+            $("#username-error").text("");
+            $("#password-error").text("");
+            $("#confirm-password-error").text("");
+            $("#register-form")[0].reset();
+            console.log(users);
+            window.location.href = "index.html";
+          });
+        });
+      </script>      
+
+    <script src="user.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

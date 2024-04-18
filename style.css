@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+footer {
+    background-color: #333;
+    color: white;
+    bottom: 0;
+    width: 100%;
+}
+
+.container {
+    padding: 30px 0;
+}
+
+footer .col-4 {
+    display: flex;
+    flex-direction: column;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .copyright {
+    background-color: #131313;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.news-card {
+    height: 100%;
+}
+
+.news-card img {
+    height: 240px;
+    object-fit: cover;
+}
+
+.background {
+    background-image: url(./Assets/bg.jpg); /* Đường dẫn đến hình ảnh bạn muốn sử dụng */
+    background-size: cover; /* Đảm bảo hình ảnh sẽ bao phủ toàn bộ background */
+    background-repeat: no-repeat; /* Ngăn lặp lại hình ảnh */
+    background-position: center center; /* Canh giữa hình ảnh */
+    height: 100vh; /* Chiều cao bằng 100% chiều cao của viewport */
+}

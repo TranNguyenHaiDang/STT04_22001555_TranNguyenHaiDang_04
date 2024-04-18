@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img src="./Assets/logo.png" alt="logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/hang-moi-ve.html"
+                >Hàng mới về</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/quan-ao.html">Quần áo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/phu-kien.html">Phụ kiện</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/giay-dep.html">Giày dép</a>
+            </li>
+
+            
+          </ul>
+          <form class="d-flex" role="search">
+            <div id="user-actions" class="p-2"></div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h2 style="text-align: center">SẢN PHẦM MỚI VỀ</h2>
+      <div class="row" id="hot-products"></div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <!-- footer layout grid 3 with bootstrap -->
+        <div class="row">
+          <div class="col-4">
+            <img
+              src="./Assets/logo.png"
+              alt="logo"
+              width="136px"
+              height="63px"
+            />
+            <a href="/about.html">Giới thiệu</a>
+            <a href="/contact.html">Liên hệ</a>
+            <a href="/tuyendung.html">Tuyển dụng</a>
+            <a href="/news.html">Tin tức</a>
+            <p>Email: info@4men.com</p>
+            <p>Hotline: 0123456789</p>
+          </div>
+          <div class="col-4">
+            <h3>Hỗ trợ khách hàng</h3>
+            <a href="/size.html">Hướng dẫn chọn size</a>
+            <a href="/chinhsach.html">Chính sách đổi trả</a>
+            <a href="/question.html">Câu hỏi thường gặp</a>
+          </div>
+          <div class="col-4">
+            <h3>Hệ Thống cửa hàng</h3>
+            <img src="./Assets/footer-map.jpg" alt="map" />
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2021 4MEN. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let hotProducts = products.sort((a, b) => b.id - a.id).slice(0, 8);
+
+        let hotProductsContainer = document.getElementById("hot-products");
+
+        hotProducts.forEach((product) => {
+          hotProductsContainer.innerHTML += `
+                <div class="col-3">
+                    <div class="card mb-4">
+                        <img src="${product.image}" class="card-img-top" alt="${
+            product.name
+          }">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate">${product.name}</h5>
+                            <p class="card-text" style="text-align: center">${Math.floor(
+                              product.price * (1 - product.discount)
+                            ).toLocaleString(
+                              "vi-VN"
+                            )}<del style="font-size: smaller; color: red">${
+            product.price
+          }</del></p>
+                            <div style="text-align: center">
+                                <a href="/san-pham.html?id=${
+                                  product.id
+                                }" class="btn btn-primary">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
