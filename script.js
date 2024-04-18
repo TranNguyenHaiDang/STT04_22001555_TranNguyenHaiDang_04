@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
   } else {
     userActions.innerHTML = `
-                <a href="/login.html" class="text-decoration-none">Đăng nhập</a>
-                <a href="/register.html" class="text-decoration-none">Đăng Ký</a>
+                <a href="./login.html" class="text-decoration-none">Đăng nhập</a>
+                <a href="./register.html" class="text-decoration-none">Đăng Ký</a>
             `;
   }
 });
